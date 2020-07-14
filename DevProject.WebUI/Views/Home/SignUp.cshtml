@@ -1,0 +1,76 @@
+﻿@model SignUpDto
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>RegistrationForm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- LINEARICONS -->
+    <link href="~/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Templete/colorlib-regform-26/fonts/linearicons/style.css" rel="stylesheet" />
+    <link href="~/font-awesome/css/all.css" rel="stylesheet" />
+    <!-- STYLE CSS -->
+    @*<link rel="stylesheet" href="css/style.css">*@
+    <link href="~/Templete/colorlib-regform-26/css/StyleSheet.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="inner">
+            <img src="Templete/colorlib-regform-26/images/image-1.png" alt="" class="image-1">
+            <form asp-action="SignUp" method="post" asp-controller="Home">
+                <h3>New Account?</h3>
+                <div class="form-holder">
+                    <span asp-validation-for="Username" class="text-danger"></span>
+                    <i class="fas fa-user"></i>
+                    <input asp-for="Username" class="form-control" placeholder="İstifadəçi Adı">
+                </div>
+                <div class="form-holder">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                    <i class="fas fa-id-badge"></i>
+                    <input asp-for="Name" class="form-control" placeholder="Adıniz">
+                </div>
+                <div class="form-holder">
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                    <i class="far fa-id-badge"></i>
+                    <input asp-for="Surname" class="form-control" placeholder="Soyadınız">
+                </div>
+                <div class="form-holder">
+                    <span asp-validation-for="Age" class="text-danger"></span>
+                    <i class="fas fa-child"></i>
+                    <input asp-for="Age" class="form-control" placeholder="Yaşınız">
+                </div>
+                <div class="form-holder">
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                    <i class="fas fa-at"></i>
+                    <input asp-for="Email" class="form-control" placeholder="Email">
+                </div>
+                <div class="form-holder">
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" asp-for="Password" class="form-control" placeholder="Şifrə">
+                </div>
+                <div class="form-holder">
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" asp-for="ConfirmPassword" class="form-control" placeholder="Şifrəni təsdiqlə ">
+                </div>
+                <button class="btn btn-primary" type="submit">
+                    Qeydiyyatdan Keç
+                </button>
+            </form>
+            <img src="Templete/colorlib-regform-26/images/image-2.png" alt="" class="image-2">
+        </div>
+
+    </div>
+
+    <script src="~/Templete/colorlib-regform-26/js/jquery-3.3.1.min.js"></script>
+    <script src="~/Templete/colorlib-regform-26/js/main.js"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>

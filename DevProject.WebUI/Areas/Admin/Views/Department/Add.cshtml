@@ -1,0 +1,27 @@
+﻿@model DepartmetAddDto
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col-2">
+
+        </div>
+        <div class="col-8">
+            <form asp-action="Add" asp-controller="Department" asp-area="Admin" method="post">
+                <div class="form-group">
+                    <span asp-validation-for="DepartmentName" class="text-danger"></span>
+                    <input asp-for="DepartmentName" class="form-control" placeholder="Department Name" />
+                </div>
+                <a asp-controller="Department" asp-area="Admin" asp-action="List" class="btn btn-warning"><i class="fas fa-times mx-2"></i>Imtina</a>
+                <button class="btn btn-success "><i class="fas fa-save mr-2"></i>Save</button>
+            </form>
+        </div>
+        <div class="col-2">
+
+        </div>
+    </div>
+
+</div>

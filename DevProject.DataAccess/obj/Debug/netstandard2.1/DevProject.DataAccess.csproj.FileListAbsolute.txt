@@ -1,0 +1,14 @@
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\bin\Debug\netstandard2.1\DevProject.DataAccess.deps.json
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\bin\Debug\netstandard2.1\DevProject.DataAccess.dll
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\bin\Debug\netstandard2.1\DevProject.DataAccess.pdb
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\bin\Debug\netstandard2.1\DevProject.Core.dll
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\bin\Debug\netstandard2.1\DevProject.Entities.dll
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\bin\Debug\netstandard2.1\DevProject.Entities.pdb
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\bin\Debug\netstandard2.1\DevProject.Core.pdb
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\obj\Debug\netstandard2.1\DevProject.DataAccess.csprojAssemblyReference.cache
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\obj\Debug\netstandard2.1\DevProject.DataAccess.AssemblyInfoInputs.cache
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\obj\Debug\netstandard2.1\DevProject.DataAccess.AssemblyInfo.cs
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\obj\Debug\netstandard2.1\DevProject.DataAccess.csproj.CopyComplete
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\obj\Debug\netstandard2.1\DevProject.DataAccess.dll
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\obj\Debug\netstandard2.1\DevProject.DataAccess.pdb
+C:\Users\talib\source\repos\DevProject\DevProject.DataAccess\obj\Debug\netstandard2.1\DevProject.DataAccess.csproj.CoreCompileInputs.cache

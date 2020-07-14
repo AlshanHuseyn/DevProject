@@ -1,0 +1,12 @@
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\bin\Debug\netstandard2.1\DevProject.Entities.deps.json
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\bin\Debug\netstandard2.1\DevProject.Entities.dll
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\bin\Debug\netstandard2.1\DevProject.Core.dll
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\bin\Debug\netstandard2.1\DevProject.Core.pdb
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\obj\Debug\netstandard2.1\DevProject.Entities.csprojAssemblyReference.cache
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\obj\Debug\netstandard2.1\DevProject.Entities.AssemblyInfoInputs.cache
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\obj\Debug\netstandard2.1\DevProject.Entities.AssemblyInfo.cs
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\obj\Debug\netstandard2.1\DevProject.Entities.csproj.CopyComplete
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\bin\Debug\netstandard2.1\DevProject.Entities.pdb
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\obj\Debug\netstandard2.1\DevProject.Entities.csproj.CoreCompileInputs.cache
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\obj\Debug\netstandard2.1\DevProject.Entities.dll
+C:\Users\talib\source\repos\DevProject\DevProject.Entities\obj\Debug\netstandard2.1\DevProject.Entities.pdb

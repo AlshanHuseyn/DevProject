@@ -1,0 +1,22 @@
+﻿@model UserDetailsDto
+@{
+    ViewData["Title"] = "UserDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="my-2 mx-auto">
+        <div class="form-group">
+            @Model.User.UserName
+        </div>
+        <div>
+            <ul class="form-group">
+                <li>@Model.User.Name</li>
+                <li>@Model.User.SurName</li>
+                <li>@Model.User.Age</li>
+                <li>@Model.User.Salary</li>
+                <li>@Model.User.Email</li>
+            </ul>
+        </div>
+    </div>
+</div>

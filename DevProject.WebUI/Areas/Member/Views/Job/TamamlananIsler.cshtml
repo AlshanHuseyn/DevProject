@@ -1,0 +1,67 @@
+﻿@model List<JobListDto>
+@{
+    ViewData["Title"] = "TamamlananIsler";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+    int index = 0;
+}
+
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        index++;
+        <div class="card my-2">
+            <div class="card-header">
+                @item.Name
+            </div>
+            <div class="card-body">
+                <h5 class="card-title"><span class="text-danger">Department :</span>@item.Department.DepartmentName</h5>
+                <p class="card-text">@item.Description</p>
+
+                <p class="text-right">
+                    @if (item.Reports.Count > 0)
+                    {
+                        <a class="btn btn-outline-dark" data-toggle="collapse" href="#collapseExample-@index" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Hesabata Get<i class="fas fa-caret-square-down ml-2"></i>
+                            <span class="badge badge-dark">@item.Reports.Count</span>
+                        </a>
+                    }
+
+
+                </p>
+                <div class="collapse" id="collapseExample-@index">
+
+                    <table class="table table-hover table-sm table-bordered">
+                        <tr>
+                            <th>Basliq</th>
+                            <th>Detay</th>
+                        </tr>
+                        @foreach (var raport in item.Reports)
+                        {
+                            <tr>
+                                <td>@raport.Basliq</td>
+                                <td>@raport.Detay</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
+
+
+            </div>
+        </div>
+    }
+
+    <nav aria-label="Page navigation example" class="float-right mx-2">
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.UmumiSehife; i++)
+            {
+                <li class="page-item @(ViewBag.AktivSehife==i?"active":"")">
+                    <a class="page-link" asp-action="TamamlananIsler" asp-route-aktivSehife="@i">
+                        @i
+                    </a>
+                </li>
+            }
+
+        </ul>
+    </nav>
+</div>

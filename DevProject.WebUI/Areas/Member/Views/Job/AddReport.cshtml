@@ -1,0 +1,48 @@
+﻿@model ReportAddDto
+@{
+    ViewData["Title"] = "AddReport";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+}
+
+
+<form class="w-50 mx-auto my-2" method="post" asp-action="AddReport">
+
+    <div class="card border-info mb-3" style="max-width: 20rem;">
+        <div class="card-header"> Raport Yaz Bolmesi</div>
+        <div class="card-body">
+            <h4 class="card-title">
+                <span class="text-danger">Isin Adi : </span>
+                @Model.Job.Name
+            </h4>
+            <p class="card-text">
+                <span class="text-danger">Isin Aciqlamasi : </span>
+                @Model.Job.Description
+            </p>
+            <p class="card-text">
+                <span class="text-danger">Isin Departmenti : </span>
+                @Model.Job.Department.DepartmentName
+            </p>
+        </div>
+    </div>
+
+
+
+    <input type="hidden" asp-for="JobId" />
+    <div class="form-group">
+        <label asp-for="Basliq"></label>
+        <span asp-validation-for="Basliq" class="text-danger"></span>
+        <input asp-for="Basliq" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Detay"></label>
+        <span asp-validation-for="Detay" class="text-danger"></span>
+        <textarea asp-for="Detay" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <a class="btn btn-outline-danger" asp-action="Index"><i class="fas fa-angle-double-left mr-2"></i> Imtina</a>
+        <button type="submit" class="btn btn-outline-dark">
+            <i class="fas fa-save mr-2"></i>Yadda Saxla
+        </button>
+    </div>
+</form>

@@ -1,0 +1,31 @@
+﻿@model JobAddDto
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="my-2">
+        <form asp-action="Add" method="post" class="mx-auto w-75 p-3">
+            <div class="form-group">
+                <label asp-for="Name">Ad</label>
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <input class="form-control" asp-for="Name" type="text" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description">Aciklama</label>
+                <span asp-validation-for="Description" class="text-danger"></span>
+                <textarea class="form-control" asp-for="Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentId">Aciliyet</label>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+                <select class="form-control" asp-for="DepartmentId" asp-items="ViewBag.Departments">
+                    <option hidden value="-1">Department Secin</option>
+                </select>
+            </div>
+            <a asp-controller="Admin" asp-area="Admin" asp-action="List" class="btn btn-warning">Imtina</a>
+            <button type="submit" class="btn btn-dark"><i class="fas fa-save mr-2"></i>Save</button>
+        </form>
+    </div>
+</div>

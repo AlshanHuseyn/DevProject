@@ -1,0 +1,60 @@
+﻿@model List<DepartmentListDto>
+@{
+    ViewData["Title"] = "List";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@if (@Model.Count != 0)
+{
+    <div class="container">
+        <div class="my-2 mx-auto">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Department Name</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.DepartmentName</td>
+                            <td>
+                                <a asp-action="Update" asp-controller="Department" asp-area="Admin" asp-route-id="@item.DepartmentId" class="btn btn-warning"><i class="far fa-edit mr-2"></i>Güncəllə</a>
+                            </td>
+                            <td>
+                                <a asp-action="Delete" asp-controller="Department"
+                                   asp-area="Admin" asp-route-id="@item.DepartmentId"
+                                   class="btn btn-danger"><i class="far fa-trash-alt mr-2"></i> Sil</a>
+                            </td>
+                            <td>
+                                <a asp-controller="Department" asp-area="Admin" asp-action="Details" asp-route-id="@item.DepartmentId" class="btn btn-info"><i class="fas fa-info-circle mx-2"></i>Detallar</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="my-2 mx-auto">
+            <a class="btn btn-primary" asp-controller="Department" asp-area="Admin" asp-action="Add">
+                <i class="fas fa-plus-circle mx-2"></i> Add Department
+            </a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="text-center text-danger my-2">
+        <div class="row mx-2">
+            <p class="lead"> Department Yoxdur!</p>
+        </div>
+        <div class="my-2 mx-auto">
+            <a class="btn btn-primary" asp-controller="Department" asp-area="Admin" asp-action="Add">
+                <i class="fas fa-plus-circle mx-2"></i> Add Department
+            </a>
+        </div>
+    </div>
+}

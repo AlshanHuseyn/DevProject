@@ -1,0 +1,63 @@
+﻿@model PersonelGorevlendirListDto
+@{
+    ViewData["Title"] = "GorevlendirPersonel";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row my-3">
+    <div class="col-md-4">
+
+        <div class="card border-primary mb-3 shadow" style="max-width: 20rem;">
+            <div class="card-header">Gorev Bilgileri</div>
+            <div class="card-body">
+                <h4 class="card-title">@Model.Job.Name</h4>
+                <p class="card-text"> @Model.Job.Description</p>
+                <p class="card-text">
+                    <strong>Department :</strong>
+                    <span class="badge badge-danger">@Model.Job.DepartmentName</span>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-8">
+
+        <div class="card mb-3 border border-primary p-2 shadow">
+            <div class="card-header text-center">Personel Bilgileri</div>
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img src="~/img/@Model.User.Picture"
+                         class="card-img img-thumbnail shadow" style="height:15rem!important" alt="@Model.User.Name">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@Model.User.Name @Model.User.SurName</h5>
+                        <p class="card-text">
+                            <small class="text-muted">
+                                @Model.User.Email
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-12">
+        <form asp-action="JobDetails" method="post">
+            <p class="lead">
+                @Model.Job.Name Isine @Model.User.Name @Model.User.SurName gorevlendirilecekdir.
+                Gorevlendirilsinmi?
+            </p>
+            <div class="form-group text-center">
+                <a asp-action="JobDetails" asp-route-id="@Model.Job.Id" class="btn btn-dark btn-light"><i class="far fa-window-close mr-2"></i>Vazgec</a>
+                <input type="hidden" name="userId" value="@Model.User.Id" />
+                <input type="hidden" name="jobId" value="@Model.Job.Id" />
+                <button type="submit" class="btn btn-primary"><i class="fas fa-check mr-2"></i>Gorevlendir</button>
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,17 @@
+﻿@model DepartmentUpdateDto
+@{
+    ViewData["Title"] = "Update";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container my-2">
+    <form asp-action="Update" asp-controller="Department" asp-area="Admin" method="post">
+        <div class="form-group">
+            <input type="hidden" asp-for="Id" />
+            <span asp-validation-for="DepartmentName" class="text-danger"></span>
+            <input asp-for="DepartmentName" class="form-control" />
+        </div>
+        <a asp-controller="Department" asp-area="Admin" asp-action="List" class="btn btn-warning"><i class="fas fa-times mx-2"></i>Imtina</a>
+        <button class="btn btn-success "><i class="fas fa-save mr-2"></i>Save</button>
+    </form>
+</div>

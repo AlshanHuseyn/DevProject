@@ -1,0 +1,43 @@
+﻿
+@model UserListDto
+@{
+    string active = string.Empty;
+    if (TempData["Active"] != null)
+    {
+        active = TempData["Active"].ToString();
+    }
+}
+
+<div class="bg-light border-right" id="sidebar-wrapper">
+    <div class="sidebar-heading">
+        <img src="~/img/@Model.Picture" alt="@Model.Name" class="img-thumbnail" style="height:10rem!important;" />
+
+    </div>
+
+
+    <div class="list-group list-group-flush">
+        <a asp-area="Member" asp-controller="Home" asp-action="Index" class="list-group-item list-group-item-action  @(active=="home"?"active":"")">
+            <i class="fas fa-home mr-2"></i>  Ana Sehife
+        </a>
+        <a asp-area="Member" asp-controller="Profil" asp-action="Index" class="list-group-item list-group-item-action  @(active == "profile" ? "active" : "")">
+            <i class="fas fa-user-alt mr-2 fa-1x"></i> Profilim
+        </a>
+        <a asp-action="Index" asp-controller="Bildirim" class="list-group-item list-group-item-action position-relative @(active == "bildirim" ? "active" : "")">
+            <i class="far fa-bell mr-2"></i>
+            @if (ViewBag.BildirimSayi > 0)
+            {
+                <sub class="badge badge-info badge-pill position-absolute" style="left: 1.7rem !important;"><small>@ViewBag.BildirimSayi</small></sub>
+            }
+            Bildirimler
+        </a>
+        <a asp-action="Index" asp-controller="Job" asp-area="Member" class="list-group-item list-group-item-action @(active == "jobs" ? "active" : "")">
+            <i class="fas fa-tasks mr-2"></i>Calisdigi Is
+        </a>
+        <a asp-action="TamamlananIsler" asp-controller="Job" asp-area="Member" class="list-group-item list-group-item-action  @(active == "jobT" ? "active" : "")">
+            <i class="fas fa-calendar-check mr-2"></i>Tamaladigi IS
+        </a>
+        <a asp-area="" asp-controller="Home" asp-action="SignOut" class="list-group-item list-group-item-action">
+            <i class="fas fa-sign-out-alt mr-2"></i> Cikis Yap
+        </a>
+    </div>
+</div>

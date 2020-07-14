@@ -1,0 +1,41 @@
+﻿@model List<UserListDto>
+@{
+    ViewData["Title"] = "IsciElaveEt";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Ad</th>
+                        <th>Soyad</th>
+                        <th>Yas</th>
+                        <th>Email</th>
+                        <th>Maas</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tbody>
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.SurName</td>
+                            <td>@item.Age</td>
+                            <td>@item.Email</td>
+                            <td>@item.Salary</td>
+                            <td>
+                                <a asp-area="Admin" asp-controller="JobDetails" asp-action="GorevlendirPersonel" asp-route-userId="@item.Id" class="btn btn-primary">Gorevlendir</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                }
+            </table>
+        </div>
+    </div>
+
+</div>

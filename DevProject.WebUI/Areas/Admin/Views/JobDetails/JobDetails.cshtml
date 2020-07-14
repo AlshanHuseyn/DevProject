@@ -1,0 +1,111 @@
+﻿
+@model JobListDto
+@{
+    ViewData["Title"] = "JobDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    string s = (string)ViewBag.Aranan;
+}
+
+
+<div class="container">
+    <div class="row mt-3">
+        <div class="col-md-4">
+
+            <div class="card border-primary mb-3 shadow" style="max-width: 20rem;">
+                <div class="card-header"><i class="fas fa-info fa-2x mr-2"></i>Is Melumatlari</div>
+                <div class="card-body">
+                    <h4 class="card-title">@Model.Name</h4>
+                    <p class="card-text"> @Model.Description</p>
+                    <p class="card-text">
+                        <small>
+                            @Model.CreationDate.ToString("D")
+                        </small>
+                    </p>
+                </div>
+            </div>
+            <div class="my-2">
+                <a class="btn btn-outline-primary" asp-area="Admin" asp-controller="JobDetails" asp-route-jobId="@Model.Id" asp-action="IsciElaveEt">Isci Elave Et</a>
+            </div>
+        </div>
+        <div class="col-md-8">
+
+            @if (!string.IsNullOrWhiteSpace(s))
+            {
+                <div class="border border-dark p-3 my-2">
+                    <strong>@s</strong> Sozu ucun neticeler
+                    <a class="btn btn-warning float-right"
+                       asp-action="JobDetails" asp-area="Admin"
+                       asp-controller="JobDetails" asp-route-id="@Model.Id">
+                        <i class="fas fa-quidditch mr-2"></i>Filteri temizle
+                    </a>
+                </div>
+            }
+
+            <div class="my-2">
+                <form class="form-inline my-2 my-lg-0" asp-action="JobDetails" method="get">
+                    <input name="s" class="form-control mr-sm-2" type="text" placeholder="Axtar">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class="fas fa-search mr-2"></i>Axtar</button>
+                </form>
+            </div>
+
+            @foreach (var item in (List<UserListDto>)ViewBag.Personallar)
+            {
+                <div class="card mb-3 border border-primary p-2">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="~/img/@item.Picture"
+                                 class="card-img img-thumbnail shadow" style="height:15rem!important" alt="@item.Name">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Name @item.SurName</h5>
+                                <p class="card-text">
+                                    <getUserId user-id="@item.Id"></getUserId>
+                                </p>
+                                <p class="card-text">
+                                    <small class="text-muted">
+                                        @item.Email
+                                    </small>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    @if (!string.IsNullOrWhiteSpace(s))
+                    {
+                        @for (int i = 1; i <= ViewBag.ToplamSayfa; i++)
+                        {
+                            <li class="page-item @(ViewBag.AktifSayfa==i?"active":"")">
+                                <a class="page-link"
+                                   asp-action="JobDetails"
+                                   asp-route-id="@Model.Id"
+                                   asp-route-sayfa="@i"
+                                   asp-route-s="@s">@i</a>
+                            </li>
+                        }
+                    }
+                    else
+                    {
+                        @for (int i = 1; i <= ViewBag.UmumiSehife; i++)
+                        {
+                            <li class="page-item @(ViewBag.aktivSehife==i?"active":"")">
+                                <a class="page-link"
+                                   asp-action="JobDetails"
+                                   asp-route-id="@Model.Id"
+                                   asp-route-sehife="@i">@i</a>
+                            </li>
+                        }
+                    }
+
+
+                </ul>
+            </nav>
+        </div>
+
+
+    </div>
+</div>

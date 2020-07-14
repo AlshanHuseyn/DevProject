@@ -1,0 +1,117 @@
+﻿@model List<JobListDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Member/Views/Shared/_MemberLayout.cshtml";
+    int index = 0;
+}
+
+@foreach (var item in Model)
+{
+    index++;
+    <div class="card my-2">
+        <div class="card-header">
+            @item.Name
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><span class="text-danger">Department :</span>@item.Department.DepartmentName</h5>
+            <p class="card-text">@item.Description</p>
+
+            <p class="text-right">
+                @if (item.Reports.Count > 0)
+                {
+                    <a class="btn btn-outline-dark" data-toggle="collapse" href="#collapseExample-@index" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        Hesabata Get<i class="fas fa-caret-square-down ml-2"></i>
+                        <span class="badge badge-dark">@item.Reports.Count</span>
+                    </a>
+                }
+                else
+                {
+                    <span class="lead font-weight-bold font-italic d-block text-center mb-1">
+                        Raport yazmayibsiniz,Is raportlarini yazin!
+                    </span>
+                    <a class="btn btn-outline-dark" asp-action="AddReport" asp-route-id="@item.Id">
+                        <i class="fas fa-feather mr-2"></i>Raport Yaz
+                    </a>
+                }
+                <a href="#" class="btn btn-outline-success" data-toggle="modal"
+                   data-target="#exampleModal" data-id="@item.Id">
+                    Tamamlandi olaraq isrele
+                </a>
+            </p>
+            <div class="collapse" id="collapseExample-@index">
+                <a class="btn btn-outline-dark my-2" asp-action="AddReport" asp-route-id="@item.Id">
+                    <i class="fas fa-feather mr-2"></i>Raport Yaz
+                </a>
+                <table class="table table-hover table-sm table-bordered">
+                    <tr>
+                        <th>Basliq</th>
+                        <th>Detay</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    @foreach (var raport in item.Reports)
+                    {
+                        <tr>
+                            <td>@raport.Basliq</td>
+                            <td>@raport.Detay</td>
+                            <td>
+                                <a asp-action="UpdateReport" asp-route-id="@raport.Id" class="btn btn-outline-info btn-sm"><i class="far fa-edit mr-2"></i>Guncelle</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+}
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Bildiris!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center font-weight-bold lead">
+                Tamamlandi olaraq isarelensinmi?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fas fa-times mr-2"></i>Imtina</button>
+                <button id="btnSave" type="button" class="btn btn-primary"><i class="fas fa-check mr-2"></i> Beli</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section JavaScript
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#exampleModal").on("show.bs.modal",
+                function (event) {
+                    let tetikleyenElement = $(event.relatedTarget);
+                    let data = tetikleyenElement.data("id");
+                    $("#btnSave").click(function () {
+                        $.ajax({
+                            type: "GET",
+                            contentType: "application/json; charset=utf-8;",
+                            url: "./TamamlaJob",
+                            data: { jobId: data },
+                            success: function () {
+                                window.location.reload();
+                            },
+                            error: function (error) {
+                                alert(error.responseText);
+                            }
+                        });
+                    });
+                });
+        });
+    </script>
+}

@@ -1,0 +1,62 @@
+﻿@model DepartmentDetailsDto
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <div class="text-center my-1 mx-auto">
+        @Model.DepartmentName
+    </div>
+    <div class="container my-2 mx-auto">
+        <div class="row">
+            <div class="col-6 border border-bottom-0 border-left-0 border-top-0">
+                <div class=" text-info">
+                    Isler
+                </div>
+                <div>
+                    @if (ViewBag.Jobs != null)
+                    {
+                        @foreach (var item in (List<Job>)ViewBag.Jobs)
+                        {
+                            <ul>
+                                <a asp-controller="JobDetails" asp-area="Admin" asp-action="JobDetails" asp-route-id="@item.Id" class="list-group-item text-dark">@item.Name</a>
+                            </ul>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-center text-dark">
+                            Bu Departmentde Is Yoxdur!
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="col-6">
+                <div class=" text-info">
+                    Isciler
+                </div>
+                <div>
+                    @if (ViewBag.Users != null)
+                    {
+                        @foreach (var item in (List<AppUser>)ViewBag.Users)
+                        {
+                            <ul>
+                                <a asp-controller="User" asp-area="Admin" asp-action="UserDetails" asp-route-userId="@item.Id" class="list-group-item text-dark">@item.Name @item.SurName</a>
+                            </ul>
+                        }
+                    }
+                    else
+                    {
+                        <div class="text-center text-dark">
+                            Bu Departmentde Isci Yoxdur!
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
